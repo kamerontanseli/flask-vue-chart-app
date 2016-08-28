@@ -1,0 +1,3 @@
+Vvar ctx=document.querySelector("#myChart").getContext("2d");var myChart=new Chart(ctx,{type:"bar",data:{labels:["Test1","Test2"],datasets:[{label:"# of Tests",data:[3,6]}]},options:{responsive:true,scales:{yAxes:[{ticks:{beginAtZero:true}}]}}});
+p1
+.

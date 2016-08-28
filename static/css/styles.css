@@ -1,0 +1,13 @@
+* {
+  font-family: Helvetica, sans-serif;
+}
+
+
+table {
+  width: 100%;
+}
+
+table, tbody, thead, tr, th, td {
+
+  border: 1px solid #000;
+}

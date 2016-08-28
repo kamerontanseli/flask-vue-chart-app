@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}{% endblock head %}
+{% block body %}
+<div id="chart_parent">
+  <div style="float: left; width: 50%;">
+    <canvas id="myChart"></canvas>
+  </div>
+  <div style="float: left; text-align: center; width: 50%;">
+    <h3>Edit Graph</h3>
+    <p>
+      <label>Chart Type </label>
+      <select v-model="type" v-on:change="update_chart">
+        <option v-for="t in types" value="[[t]]">
+          [[ t ]]
+        </option>
+      </select>
+    </p>
+    <p>
+      <label>Label</label>
+      <input type="text" v-on:keyup="update_chart" v-model="label">
+    </p>
+    <p>
+      <table v-show="data.length">
+        <tbody>
+          <tr v-for="set in data">
+            <td><input type="text" v-on:keyup="update_chart" v-model="set.label"></td>
+            <td><input type="number" v-on:change="update_chart" v-model="set.data"></td>
+            <td><input type="color" v-on:change="update_chart" v-model="set.bck_color"></td>
+            <td> <button v-on:click="remove_data($index)">Remove</button> </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <button v-on:click="add_data">Add Data</button>
+      <button v-on:click="export">Export Graph</button>
+    </p>
+  </div>
+</div>
+
+{% endblock body %}
+
+{% block scripts %}
+  <script type="text/javascript" src="/static/js/chart.min.js"> </script>
+  <script type="text/javascript" src="/static/js/vue.js"></script>
+  {% assets "js_all" %}
+  <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+  {% endassets %}
+{% endblock scripts %}

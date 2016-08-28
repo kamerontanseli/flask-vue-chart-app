@@ -1,0 +1,3 @@
+Vvar ctx=document.querySelector("#myChart").getContext("2d");Vue.config.delimiters=['[[',']]'];var MainChart=new Chart(ctx,{type:"bar",data:{},options:{responsive:true,scales:{yAxes:[{ticks:{beginAtZero:true}}]}}});var chart_parent=new Vue({el:"#chart_parent",data:{label:"# of Tests",data:[{label:"Test1",data:20},{label:"Test2",data:30}]},created:function(){var ctx=document.querySelector("#chart_parent").querySelector("canvas").getContext("2d");var labels=this.data.map(function(el){return el.label;});var data=this.data.map(function(el){return el.data;});var dataset=[{label:this.label,data:data}];console.log(labels,data,dataset)},methods:{remove_data:function(index){this.data.splice(index,1);},add_data:function(){this.data.push({label:"",data:0})}}});
+p1
+.

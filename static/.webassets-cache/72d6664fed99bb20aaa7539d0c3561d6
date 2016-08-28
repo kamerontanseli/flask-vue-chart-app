@@ -1,0 +1,3 @@
+Vvar GraphApp=(function(){return"Hello"})();
+p1
+.
